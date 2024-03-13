@@ -1,0 +1,21 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf build/",
+    "copy-files": "copyfiles -u 1 -e 'src/**/*.ts' -e 'src/**/*.tsx' 'src/**/*' build/",
+    "build": "tsc && yarn copy-files",
+    "dev": "yarn clean && yarn build && node --inspect ./build/index.js",
+    "rebuild": "yarn clean && yarn build",
+    "start": "node ./build/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.26",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.4.2"
+  }
+}
